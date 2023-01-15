@@ -1,0 +1,8 @@
+#!/bin/bash
+
+chmod u+x nvtop_installer python310_installer virtualenv_jupyter_installer
+
+./nvtop_installer
+./python310_installer
+./virtualenv_jupyter_installer
+

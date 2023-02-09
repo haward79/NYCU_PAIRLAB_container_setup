@@ -15,7 +15,7 @@ cd ..
 python3 -m virtualenv general
 cd general
 source bin/activate
-pip install -U pip ipython ipykernel numpy opencv-python matplotlib torch torchvision
+pip install -U pip ipython ipykernel ipywidgets numpy opencv-python matplotlib torch torchvision
 ipython kernel install --name general --user
 deactivate
 cd ~

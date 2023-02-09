@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ -n $(which python3) ]]
+if [[ -n $(which python3.10) ]]
 then
     echo 'python3.10 is already installed.'
 else

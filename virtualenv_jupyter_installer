@@ -1,21 +1,26 @@
 #!/bin/bash
 
-cd '/home/user/VirtualEnv'
-python3 -m virtualenv jupyter
-cd jupyter
-source bin/activate
-pip install -U pip jupyterlab
-jupyter-lab --generate-config
-sed -i "s/# c.ServerApp.notebook_dir = ''/c.ServerApp.notebook_dir = '\/home\/user\/Workspace'/g" '/home/user/.jupyter/jupyter_lab_config.py'
-sed -i "s/# c.ServerApp.ip = 'localhost'/c.ServerApp.ip = '0.0.0.0'/g" '/home/user/.jupyter/jupyter_lab_config.py'
-sed -i "s/# c.ServerApp.password = ''/c.ServerApp.password = '"'argon2:$argon2id$v=19$m=10240,t=10,p=8$CSKIAcqHn22pZPg3\/bYRgQ$8ej46kOgt6FYKi2BJaGDmuX2MW+MUX7kKDCoR6SxI\/Q'"'/g" '/home/user/.jupyter/jupyter_lab_config.py'
-deactivate
-cd ..
+if [[ -d '/home/user/VirtualEnv/jupyter' ]] || [[ -d '/home/user/VirtualEnv/general' ]]
+then
+    echo 'Some python virtual environments are already exist.'
+else
+    cd '/home/user/VirtualEnv'
+    python3 -m virtualenv jupyter
+    cd jupyter
+    source bin/activate
+    pip install -U pip jupyterlab
+    jupyter-lab --generate-config
+    sed -i "s/# c.ServerApp.notebook_dir = ''/c.ServerApp.notebook_dir = '\/home\/user\/Workspace'/g" '/home/user/.jupyter/jupyter_lab_config.py'
+    sed -i "s/# c.ServerApp.ip = 'localhost'/c.ServerApp.ip = '0.0.0.0'/g" '/home/user/.jupyter/jupyter_lab_config.py'
+    sed -i "s/# c.ServerApp.password = ''/c.ServerApp.password = '"'argon2:$argon2id$v=19$m=10240,t=10,p=8$CSKIAcqHn22pZPg3\/bYRgQ$8ej46kOgt6FYKi2BJaGDmuX2MW+MUX7kKDCoR6SxI\/Q'"'/g" '/home/user/.jupyter/jupyter_lab_config.py'
+    deactivate
+    cd ..
 
-python3 -m virtualenv general
-cd general
-source bin/activate
-pip install -U pip ipython ipykernel ipywidgets numpy opencv-python matplotlib torch torchvision
-ipython kernel install --name general --user
-deactivate
-cd ~
+    python3 -m virtualenv general
+    cd general
+    source bin/activate
+    pip install -U pip ipython ipykernel ipywidgets numpy opencv-python matplotlib torch torchvision
+    ipython kernel install --name general --user
+    deactivate
+    cd ~
+fi

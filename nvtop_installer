@@ -1,10 +1,15 @@
 #!/bin/bash
 
-sudo apt install -y libcurses-ocaml-dev libudev-dev libdrm-dev
+if [[ -d '/home/user/Software/nvtop' ]]
+then
+    echo 'nvtop already exists.'
+else
+    sudo apt install -y libcurses-ocaml-dev libudev-dev libdrm-dev
 
-cd '/home/user/Software'
-git clone 'https://github.com/Syllo/nvtop.git'
-cd nvtop && mkdir build && cd build
-cmake ..
-make -j
-sudo make install
+    cd '/home/user/Software'
+    git clone 'https://github.com/Syllo/nvtop.git'
+    cd nvtop && mkdir build && cd build
+    cmake ..
+    make -j
+    sudo make install
+fi

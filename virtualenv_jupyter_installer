@@ -5,7 +5,7 @@ then
     echo 'Some python virtual environments are already exist.'
 else
     cd '/home/user/VirtualEnv'
-    python3 -m virtualenv jupyter
+    python3.10 -m virtualenv -p "$(which python3.10)" jupyter
     cd jupyter
     source bin/activate
     pip install -U pip jupyterlab
@@ -16,7 +16,7 @@ else
     deactivate
     cd ..
 
-    python3 -m virtualenv general
+    python3.10 -m virtualenv -p "$(which python3.10)" general
     cd general
     source bin/activate
     pip install -U pip ipython ipykernel ipywidgets numpy opencv-python matplotlib torch torchvision

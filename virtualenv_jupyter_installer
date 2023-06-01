@@ -12,7 +12,7 @@ else
     jupyter-lab --generate-config
     sed -i "s/# c.ServerApp.notebook_dir = ''/c.ServerApp.notebook_dir = '\/home\/user\/Workspace'/g" '/home/user/.jupyter/jupyter_lab_config.py'
     sed -i "s/# c.ServerApp.ip = 'localhost'/c.ServerApp.ip = '0.0.0.0'/g" '/home/user/.jupyter/jupyter_lab_config.py'
-    sed -i "s/# c.ServerApp.password = ''/c.ServerApp.password = '"'argon2:$argon2id$v=19$m=10240,t=10,p=8$CSKIAcqHn22pZPg3\/bYRgQ$8ej46kOgt6FYKi2BJaGDmuX2MW+MUX7kKDCoR6SxI\/Q'"'/g" '/home/user/.jupyter/jupyter_lab_config.py'
+    sed -i "s/# c.ServerApp.password = ''/c.ServerApp.password = '"'argon2:$argon2id$v=19$m=10240,t=10,p=8$hPEHVfKAxGi5bgmKNTf35A$w750l4falatRdZdt7\/h+bmuwLd0m4oWYxfGtvSn9JkA'"'/g" '/home/user/.jupyter/jupyter_lab_config.py'
     deactivate
     cd ..
 

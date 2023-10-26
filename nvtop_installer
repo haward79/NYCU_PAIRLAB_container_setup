@@ -8,7 +8,7 @@ else
 
     cd '/home/user/Software'
     git clone 'https://github.com/Syllo/nvtop.git'
-    cd nvtop && mkdir build && cd build
+    cd nvtop && git checkout 2b6d62a && mkdir build && cd build
     cmake ..
     make -j
     sudo make install
